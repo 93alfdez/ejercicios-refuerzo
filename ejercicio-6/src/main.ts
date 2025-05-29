@@ -23,7 +23,7 @@ if (btnCalculaHoras instanceof HTMLButtonElement) {
   btnCalculaHoras.addEventListener("click", () => {
     const diasRestantes = calculosDiasHastaElViernes(diaActual);
     const horasHoy = calculosHorasActuales(horas);
-    const horasQuedanHastaViernes = horasHoy * (diasRestantes * 24);
+    const horasQuedanHastaViernes = horasHoy + diasRestantes * 24;
     console.log(horas);
     if (diasRestantes === 0 && horasQuedanHastaViernes >= 0) {
       if (horasFaltan instanceof HTMLParagraphElement) {
