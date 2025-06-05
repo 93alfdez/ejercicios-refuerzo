@@ -44,6 +44,7 @@ rl.on('line', (line) => {
   } else {
     console.log("No eres apto")
     rl.close();
+    return
   }
 
   if (respuestas.length < totalPreguntas) {
