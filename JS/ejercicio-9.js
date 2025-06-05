@@ -7,10 +7,8 @@ import { stdin as input, stdout as output } from 'node:process';
 const calcularNota = (notas) => {
   let media = notas / 4
   if (media >= 5) {
-    console.log(media)
     console.log("Eres apto")
   } else {
-    console.log(media)
     console.log("No apto")
   }
 }
@@ -50,10 +48,10 @@ rl.on('line', (line) => {
   if (respuestas.length < totalPreguntas) {
     console.log('Dime otra nota');
   } else {
-    console.log(respuestas)
     let sumaRespuestas = respuestas[0] + respuestas[1] + respuestas[2] + respuestas[3]
-    console.log(calcularNota(sumaRespuestas));
+    calcularNota(sumaRespuestas);
     rl.close();
+    return
   }
 });
 
