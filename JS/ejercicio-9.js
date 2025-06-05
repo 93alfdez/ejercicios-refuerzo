@@ -20,28 +20,29 @@ const calcularNota = (notas) => {
 }
 
 let respuestas = [];
-const totalPreguntas = 4;
 
 console.log('Dame cuatro notas');
+const totalPreguntas = 4;
 
 rl.on('line', (line) => {
 
-  if (respuestas.length < totalPreguntas) {
-    nota = parseInt(line)
-    if (isNaN(nota) === true) {
-      console.log("Dame una nota cerdo")
-      rl.close();
-    } else {
-      if (nota >= 3) {
-        if (nota <= 10) {
-          respuestas.push(nota);
-        }
-        console.log('Dime otra nota');
-      } else {
-        console.log("No eres apto")
-        rl.close();
+  nota = parseInt(line)
+  if (isNaN(nota) === true) {
+    console.log("Dame una nota cerdo")
+    rl.close();
+  } else {
+    if (nota >= 3) {
+      if (nota <= 10) {
+        respuestas.push(nota);
       }
+    } else {
+      console.log("No eres apto")
+      rl.close();
     }
+  }
+
+  if (respuestas.length < totalPreguntas) {
+    console.log('Dime otra nota');
   } else {
     console.log(respuestas)
     sumaRespuestas = respuestas[0] + respuestas[1] + respuestas[2] + respuestas[3]
