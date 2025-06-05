@@ -4,8 +4,6 @@
 import * as readline from 'node:readline';
 import { stdin as input, stdout as output } from 'node:process';
 
-const rl = readline.createInterface({ input, output });
-
 const calcularNota = (notas) => {
   let media = notas / 4
   if (media >= 5) {
@@ -17,6 +15,9 @@ const calcularNota = (notas) => {
   }
 }
 
+const rl = readline.createInterface({ input, output });
+
+
 let respuestas = [];
 
 console.log('Dame cuatro notas');
@@ -24,10 +25,16 @@ const totalPreguntas = 4;
 
 rl.on('line', (line) => {
 
-  nota = parseInt(line)
+  let nota = parseInt(line)
+
   if (isNaN(nota) === true) {
     console.log("Dame una nota cerdo")
     rl.close();
+    return
+  }
+
+  if (respuestas.length < totalPreguntas) {
+    console.log('Dime otra nota');
   } else {
     if (nota >= 3) {
       if (nota <= 10) {
@@ -37,13 +44,8 @@ rl.on('line', (line) => {
       console.log("No eres apto")
       rl.close();
     }
-  }
-
-  if (respuestas.length < totalPreguntas) {
-    console.log('Dime otra nota');
-  } else {
     console.log(respuestas)
-    sumaRespuestas = respuestas[0] + respuestas[1] + respuestas[2] + respuestas[3]
+    let sumaRespuestas = respuestas[0] + respuestas[1] + respuestas[2] + respuestas[3]
     console.log(calcularNota(sumaRespuestas));
     rl.close();
   }
