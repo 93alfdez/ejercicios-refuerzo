@@ -33,17 +33,18 @@ rl.on('line', (line) => {
     return
   }
 
+  if (nota >= 3) {
+    if (nota <= 10) {
+      respuestas.push(nota);
+    }
+  } else {
+    console.log("No eres apto")
+    rl.close();
+  }
+
   if (respuestas.length < totalPreguntas) {
     console.log('Dime otra nota');
   } else {
-    if (nota >= 3) {
-      if (nota <= 10) {
-        respuestas.push(nota);
-      }
-    } else {
-      console.log("No eres apto")
-      rl.close();
-    }
     console.log(respuestas)
     let sumaRespuestas = respuestas[0] + respuestas[1] + respuestas[2] + respuestas[3]
     console.log(calcularNota(sumaRespuestas));
