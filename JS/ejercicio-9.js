@@ -25,7 +25,7 @@ const totalPreguntas = 4;
 
 rl.on('line', (line) => {
 
-  let nota = parseInt(line)
+  let nota = parseFloat(line)
 
   if (isNaN(nota) === true) {
     console.log("Dame una nota cerdo")
@@ -36,6 +36,10 @@ rl.on('line', (line) => {
   if (nota >= 3) {
     if (nota <= 10) {
       respuestas.push(nota);
+    } else {
+      console.log("No es una nota válida")
+      rl.close();
+      return
     }
   } else {
     console.log("No eres apto")
