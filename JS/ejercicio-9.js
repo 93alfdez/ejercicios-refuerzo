@@ -13,6 +13,7 @@ const calcularNota = (notas) => {
   }
 }
 
+
 const rl = readline.createInterface({ input, output });
 
 
