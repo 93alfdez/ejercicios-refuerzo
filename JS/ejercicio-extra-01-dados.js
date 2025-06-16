@@ -15,8 +15,10 @@ const rl = readline.createInterface({ input, output });
 console.log('¿Lanzas el dado? [y/n]');
 
 rl.on('line', (line) => {
-  if (line === "y") {
 
+  let input = line.toLowerCase()
+
+  if (input === "y") {
     let dado = lanzarDado();
 
     if (dado === 6) {
@@ -34,7 +36,7 @@ rl.on('line', (line) => {
       }
     }
 
-  } else if (line === "p") {
+  } else if (input === "p") {
     console.log(`Te has plantado y tu resultado es: ${resultado}`)
     rl.close();
   } else {
