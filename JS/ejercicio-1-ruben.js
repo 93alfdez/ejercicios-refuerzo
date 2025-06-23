@@ -13,25 +13,22 @@ const rl = readline.createInterface({ input, output });
 
 
 const password = "hola"
+let intentos = 0
 
 console.log("Escribe la contraseña")
 
 rl.on('line', line => {
 
-  let input = line.toLowerCase()
-
-  if (input === password) {
+  if (line === password) {
     console.log("Bienvenido")
     rl.close();
   } else {
-    for (let i = 0; i < 3; i++) {
-      console.log("Escribe la contraseña")
-      if (i === 3) {
-        console.log("Contrasela incorrecta")
-        rl.close();
-      }
+    intentos = intentos + 1
+    if (intentos === 3) {
+      console.log("Contraseña incorrecta")
+      rl.close();
     }
+    console.log("Escribe la contraseña")
   }
-
 }
 );
